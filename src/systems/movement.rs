@@ -24,7 +24,7 @@ pub fn movement(
                     camera.on_player_move(want_move.destination);
                     fov.visible_tiles.iter().for_each(|pos| {
                         // (2)
-                        map.revealed_tiles[map_idx(pos.x, pos.y)] = true;
+                        map.revealed_tiles[calculate_map_idx(pos.x, pos.y)] = true;
                     });
                 }
             }

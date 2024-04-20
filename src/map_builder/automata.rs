@@ -43,7 +43,7 @@ impl CellularAutomataArchitect {
         let mut neighbors = 0;
         for iy in -1..=1 {
             for ix in -1..=1 {
-                if !(ix == 0 && iy == 0) && map.tiles[map_idx(x + ix, y + iy)] == TileType::Wall {
+                if !(ix == 0 && iy == 0) && map.tiles[calculate_map_idx(x + ix, y + iy)] == TileType::Wall {
                     neighbors += 1;
                 }
             }
@@ -58,7 +58,7 @@ impl CellularAutomataArchitect {
             // (6)
             for x in 1..SCREEN_WIDTH - 1 {
                 let neighbors = self.count_neighbors(x, y, map); // (7)
-                let idx = map_idx(x, y);
+                let idx = calculate_map_idx(x, y);
                 if neighbors > 4 || neighbors == 0 {
                     // (8)
                     new_tiles[idx] = TileType::Wall;

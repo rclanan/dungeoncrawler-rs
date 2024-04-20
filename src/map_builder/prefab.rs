@@ -71,7 +71,7 @@ pub fn apply_prefab(mb: &mut MapBuilder, rng: &mut RandomNumberGenerator) {
         for ty in placement.y..placement.y + FORTRESS.2 {
             // (12)
             for tx in placement.x..placement.x + FORTRESS.1 {
-                let idx = map_idx(tx, ty);
+                let idx = calculate_map_idx(tx, ty);
                 let c = string_vec[i]; // (13)
                 match c {
                     // (14)
